@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-Thin.woff2') format('woff2'),
+        url('../fonts/Purista-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-Light.woff2') format('woff2'),
+        url('../fonts/Purista-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-Regular.woff2') format('woff2'),
+        url('../fonts/Purista-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-Medium.woff2') format('woff2'),
+        url('../fonts/Purista-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-SemiBold.woff2') format('woff2'),
+        url('../fonts/Purista-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Purista';
+    src: url('../fonts/Purista-Bold.woff2') format('woff2'),
+        url('../fonts/Purista-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

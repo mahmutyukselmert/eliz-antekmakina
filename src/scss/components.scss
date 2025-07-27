@@ -1,0 +1,456 @@
+.mb-100 {
+  margin-bottom: 6.25rem;
+}
+
+.mt-100 {
+  margin-top: 6.25rem;
+}
+
+.btn-outline-primary,
+.btn-outline-black,
+.btn-outline-white,
+.btn-outline-parlement {
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: fit-content;
+  z-index: 1;
+  border: 0.15rem solid var(--bs-btn-border-color);
+
+  span {
+    margin-right: 1rem;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 2rem;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    background-color: #fff;
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.btn-outline-white {
+  color: #fff;
+  border: 1px solid #fff;
+
+  &.text-parlement {
+    &:hover {
+      svg {
+        z-index: 1;
+        fill: $parlement !important;
+      }
+    }
+  }
+
+  &:hover {
+    color: #000;
+
+    &::before {
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+.btn-outline-primary {
+  &.text-parlement {
+    &:hover {
+      color: #fff !important;
+      svg {
+        fill: #fff !important;
+      }
+    }
+  }
+
+  &::before {
+    background-color: $primary;
+  }
+
+  svg {
+    color: $primary;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+.btn-outline-parlement {
+  &::before {
+    background-color: $parlement;
+  }  
+  svg {
+    color: $parlement;
+  }
+
+  &:hover {
+    background-color: $parlement;
+    color: #fff;
+    span {
+      color: #fff;
+    }
+    svg {
+      fill: #fff;
+    }
+    &::before {
+      width: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+.arrow-down-long {
+  display: inline-block;
+  width: 1.4rem;
+  height: 5.3rem;
+  background: url("../images/arrow-down-thing.svg") no-repeat center center;
+  background-size: auto;
+}
+
+@keyframes bounce-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-to-go {
+  z-index: 99;
+
+  i {
+    display: inline-block;
+    animation: bounce-down 1.5s ease-in-out infinite;
+  }
+}
+
+.fs-36 {
+  font-size: 2.25rem;
+}
+
+.fs-32 {
+  font-size: 2rem;
+}
+
+.home-projects-section {
+  margin-bottom: 6rem;
+
+  .custom-carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Görünür Alan (Viewport) */
+  .custom-carousel-viewport {
+    overflow: hidden;
+
+    border-radius: 0;
+  }
+
+  /* Kaydırılabilir Alan (Track) */
+  .custom-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    align-items: center;
+  }
+
+  /* Her bir Carousel Öğesi (Kartın Kapsayıcısı) */
+  .custom-carousel-item {
+    flex-shrink: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 33.33%;
+    opacity: 0.6;
+    transform: scale(0.85);
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Aktif (Ortadaki) Kart */
+  .custom-carousel-item.active-center {
+    width: 50%;
+    /* Aktif kartın genişliği */
+    opacity: 1;
+    /* Tamamen görünür */
+    transform: scale(0.95);
+    /* Normal boyut */
+    z-index: 1;
+
+    .card-left-content {
+      display: flex;
+    }
+  }
+
+  /* Proje Kartının İç Yapısı */
+  .card-project {
+    border: none;
+    border-radius: 0;
+    display: flex;
+    background-color: #ffffff;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card-left-content {
+    flex: 1;
+    /* Sol tarafın esnek büyümesini sağla */
+    max-width: 350px;
+    max-height: 540px;
+    min-height: 540px;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    /* İçindeki öğeler için konumlandırma */
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.08), -10px 0px 15px rgba(0, 0, 0, 0.08);
+    display: none;
+
+    .card-body {
+      padding: 0;
+    }
+  }
+
+  .card-right-image {
+    width: 500px;
+    /* Görsel alanı için sabit genişlik */
+    min-width: 500px;
+    max-height: 450px;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    border-radius: 0;
+    /* Sağ taraf için yuvarlak köşeler */
+  }
+
+  .card-right-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #131724;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 1.3125rem;
+    color: #131724;
+    font-weight: 500;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+    color: #131724;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    /* Metni 4 satırla sınırla */
+    -webkit-box-orient: vertical;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    right: 23%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Carousel Kontrolleri (Oklar) */
+  .carousel-control-btn {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: $primary;
+    border-radius: 0;
+    opacity: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+  }
+
+  .carousel-control-btn:hover {
+    background-color: $primary;
+  }
+
+  .carousel-control-btn svg {
+    filter: invert(1);
+    /* Beyaz ok */
+    width: 24px;
+    height: 24px;
+  }
+
+  .carousel-control-prev-btn {
+    left: 0;
+  }
+
+  .carousel-control-next-btn {
+    right: 0;
+  }
+
+  /* Responsive Ayarlamalar */
+  @media (max-width: 992px) {
+    .custom-carousel-container {
+      padding: 0 60px;
+    }
+
+    .carousel-control-btn {
+      width: 45px;
+      height: 45px;
+    }
+
+    .custom-carousel-item {
+      width: 50%;
+      /* Tabletlerde 2 item göster */
+    }
+
+    .custom-carousel-item.active-center {
+      width: 70%;
+      /* Tabletlerde aktif kartın genişliği */
+    }
+
+    .card-project {
+      height: 350px;
+    }
+
+    .card-left-content {
+      padding: 25px;
+    }
+
+    .card-right-image {
+      width: 200px;
+      min-width: 180px;
+    }
+
+    .card-right-image img {
+      max-height: 180px;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+    }
+
+    .card-subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .custom-carousel-container {
+      padding: 0 20px;
+      /* Mobil cihazlarda okları daha içeri al */
+    }
+
+    .carousel-control-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 0;
+    }
+
+    .custom-carousel-item {
+      width: 100%;
+      /* Mobil cihazlarda tek item göster */
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .custom-carousel-item.active-center {
+      width: 100%;
+      /* Aktif kart her zaman tam genişlik */
+    }
+
+    .card-project {
+      flex-direction: column;
+      /* Mobil cihazlarda dikey hizalama */
+      height: auto;
+      /* Yüksekliği otomatik yap */
+    }
+
+    .card-left-content {
+      padding: 20px;
+      border-radius: 0;
+    }
+
+    .card-right-image {
+      width: 100%;
+      /* Görsel tam genişlik */
+      height: 200px;
+      /* Sabit görsel yüksekliği */
+      border-radius: 0;
+      padding: 10px;
+    }
+
+    .card-right-image img {
+      max-height: 180px;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      -webkit-line-clamp: 3;
+      /* Metni 3 satırla sınırla */
+    }
+
+    .btn-detail {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+  }
+}

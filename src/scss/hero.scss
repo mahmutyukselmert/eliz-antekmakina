@@ -1,0 +1,179 @@
+/* Carousel Slider */
+#carouselSlider {
+    position: relative;
+    overflow: hidden;
+
+    .carousel-inner {
+        height: calc(100vh);
+
+        &::after {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            mix-blend-mode: multiply;
+            border-radius: 0rem;
+            background: linear-gradient(180deg, #707485, #707485);
+            z-index: 0;
+        }
+
+        .carousel-item {
+            height: calc(100vh);
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+
+            .carousel-caption {
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1,
+                h2 {
+                    font-size: 48px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        transition: all 0.3s ease-in-out;
+        color: #0873c3;
+        width: 3rem;
+
+        &.carousel-control-prev {
+            left: 3rem;
+        }
+
+        &.carousel-control-next {
+            right: 3rem;
+        }
+
+        .svg {
+            transition: all 0.3s ease-in-out;
+            color: #0873c3;
+            fill: #0873c3;
+        }
+
+        &:hover {
+            color: #fff;
+            fill: #fff;
+        }
+
+        @media (max-width: 992px) {
+            width: 6%;
+
+            &.carousel-control-prev {
+                left: 0rem;
+            }
+
+            &.carousel-control-next {
+                right: 0rem;
+            }
+        }
+    }
+
+    @media (max-width: 36rem) {
+        margin-top: 94px;
+
+        .carousel-inner {
+            height: 50vh;
+
+            .carousel-item {
+                height: 50vh;
+
+                .carousel-caption {
+                    z-index: 99;
+                    left: 5%;
+                    right: 5%;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+
+                    h1 {
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Sub Page Banner*/
+.page-banner {
+    position: relative;
+    overflow: hidden;
+    max-height: 770px;
+    height: 770px;
+    width: 100%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #8493a2;
+        opacity: 1;
+        mix-blend-mode: multiply;
+        z-index: -1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #10171F;
+        opacity: 1;
+        background: linear-gradient(90deg,rgba(16, 23, 31, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        z-index: 0;
+    }
+
+    .page-banner-content {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -50%);
+        
+        h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: $primary;
+        }
+        p.subtitle {
+            font-size: 36px;
+            font-weight: 600;
+            color: #fff
+        }
+        p {
+            font-size: 21px;
+            font-weight: 600;
+            color: #fff;
+        }
+        p.contact-us-banner-paragraph {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+}
+
+/* İletişim */ 
