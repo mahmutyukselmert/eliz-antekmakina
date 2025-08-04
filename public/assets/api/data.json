@@ -94,7 +94,7 @@
           "id": "russia",
           "name": "Russia",
           "center": [61.5240, 105.3188],
-          "zoom": 5,
+          "zoom": 2,
           "projects": [
             {
               "id": "olympiada_gold_mine",
@@ -102,6 +102,15 @@
               "resources": ["Au"],
               "company": "Polyus Gold International Limited",
               "coordinates": [56.1667, 60.1167],
+              "blurb": "The Olympiada Gold Mine is one of the largest gold mines in Russia...",
+              "link": "proje-detay.php"
+            },
+            {
+              "id": "olympiada_gold_mine1",
+              "name": "Olympiada Gold Mine 1",
+              "resources": ["Au"],
+              "company": "Polyus Gold International Limited 1",
+              "coordinates": [65.1667, 107.1167],
               "blurb": "The Olympiada Gold Mine is one of the largest gold mines in Russia...",
               "link": "proje-detay.php"
             }

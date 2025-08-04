@@ -14048,7 +14048,7 @@ footer a:hover {
 footer .language-switcher {
   position: fixed;
   display: inline-block;
-  right: 6rem;
+  right: 0rem;
   bottom: 0rem;
 }
 footer .language-switcher .language-btn {
