@@ -95,6 +95,9 @@
   }
 
   &:hover {
+    svg {
+      fill: #fff;
+    }
     &::before {
       width: 100%;
       z-index: -1;
@@ -105,7 +108,7 @@
 .btn-outline-parlement {
   &::before {
     background-color: $parlement;
-  }  
+  }
   svg {
     color: $parlement;
   }
@@ -161,6 +164,30 @@
 .fs-32 {
   font-size: 2rem;
 }
+.fs-30 {
+  font-size: 1.875rem;
+}
+.fs-18 {
+  font-size: 1.125rem;
+}
+
+.page-title-1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #23303d;
+}
+.custom-title-2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #23303d;
+}
+.page-paragraph-1 {
+  p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #23303d;
+  }
+}
 
 .home-projects-section {
   margin-bottom: 6rem;
@@ -213,7 +240,7 @@
   }
 
   /* Proje Kartının İç Yapısı */
-  .card-project {
+  .card-slide-project {
     border: none;
     border-radius: 0;
     display: flex;
@@ -239,6 +266,7 @@
 
     .card-body {
       padding: 0;
+      background-color: #fff;
     }
   }
 
@@ -336,6 +364,43 @@
 
   .carousel-control-next-btn {
     right: 0;
+  } 
+
+
+  @media (max-width: 1440px) {
+    .card-slide-project {
+      position: relative;
+      width: fit-content;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .carousel-controls {
+              left: 18%;
+        right: 13%;
+    }
+
+    .custom-carousel-item {
+      width: 20%;
+      margin: 0 2%;
+    }
+
+    .custom-carousel-item.active-center {
+      width: 70%;
+    }
+
+    .card-left-content {
+      padding: 30px;
+    }
+
+    .card-right-image {
+      width: 400px;
+      min-width: 380px;
+    }
+
+    .card-right-image img {
+      max-height: 500px;
+    }
   }
 
   /* Responsive Ayarlamalar */
@@ -359,7 +424,7 @@
       /* Tabletlerde aktif kartın genişliği */
     }
 
-    .card-project {
+    .card-slide-project {
       height: 350px;
     }
 
@@ -391,6 +456,11 @@
       /* Mobil cihazlarda okları daha içeri al */
     }
 
+    .carousel-controls {
+      left: 2%;
+      right: 2%;
+    }
+
     .carousel-control-btn {
       width: 40px;
       height: 40px;
@@ -402,6 +472,7 @@
       /* Mobil cihazlarda tek item göster */
       opacity: 1;
       transform: scale(1);
+              margin: 0;
     }
 
     .custom-carousel-item.active-center {
@@ -409,25 +480,24 @@
       /* Aktif kart her zaman tam genişlik */
     }
 
-    .card-project {
-      flex-direction: column;
-      /* Mobil cihazlarda dikey hizalama */
+    .card-slide-project {
+      flex-direction: column-reverse;
       height: auto;
-      /* Yüksekliği otomatik yap */
     }
 
     .card-left-content {
       padding: 20px;
       border-radius: 0;
+      min-height: auto;
+      max-width: 100%;
     }
 
     .card-right-image {
       width: 100%;
-      /* Görsel tam genişlik */
-      height: 200px;
-      /* Sabit görsel yüksekliği */
+      height: 100%;
       border-radius: 0;
-      padding: 10px;
+      padding: 0;
+      min-height: auto;
     }
 
     .card-right-image img {
@@ -452,5 +522,249 @@
       padding: 8px 20px;
       font-size: 0.9rem;
     }
+  }
+}
+
+/* Image animation */
+.image-box {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-box.visible .image-mask {
+  background: $primary;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  -webkit-transform: translate3d(-96%, -100%, 0) scale(0);
+  transform: translate3d(-96%, -100%, 0) scale(0);
+  -webkit-animation: slideDown 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.01s,
+    slideAcross 1.01s cubic-bezier(0.645, 0.045, 0.355, 1) 1s;
+  animation: slideDown 1s cubic-bezier(0.645, 0.045, 0.355, 1) 0.01s,
+    slideAcross 1.01s cubic-bezier(0.645, 0.045, 0.355, 1) 1s;
+}
+
+@-webkit-keyframes slideAcross {
+  0% {
+    -webkit-transform: translateX(-96%);
+    transform: translateX(-96%);
+  }
+
+  50% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(101%);
+    transform: translateX(101%);
+  }
+}
+
+@keyframes slideAcross {
+  0% {
+    -webkit-transform: translateX(-96%);
+    transform: translateX(-96%);
+  }
+
+  50% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(101%);
+    transform: translateX(101%);
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    -webkit-transform: translate3d(-96%, -100%, 0);
+    transform: translate3d(-96%, -100%, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(-96%, 0, 0);
+    transform: translate3d(-96%, 0, 0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    -webkit-transform: translate3d(-96%, -100%, 0);
+    transform: translate3d(-96%, -100%, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(-96%, 0, 0);
+    transform: translate3d(-96%, 0, 0);
+  }
+}
+
+@keyframes showImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.image-box.visible .gatsby-image-wrapper {
+  opacity: 1;
+  -webkit-animation: fadeIn 1.6s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  animation: fadeIn 1.6s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.image-box .gatsby-image-wrapper {
+  opacity: 0;
+}
+
+.image-box img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  width: 100%;
+}
+
+.visible img {
+  animation: showImage 1.5s ease 1.5s both; /* 2s sonra başlasın */
+}
+
+#productSwiper {
+  position: relative;
+  min-height: 600px;
+  max-height: 600px;
+  border-radius: 1rem;
+  .swiper-wrapper {
+    .swiper-slide {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  .swiper-button-next svg,
+  .swiper-button-prev svg {
+    width: auto;
+    height: auto;
+  }
+}
+
+.w-35 {
+  width: 35%;
+  max-width: none !important;
+  @media (max-width: 992px) {
+    width: auto;
+    max-width: max-content !important;
+  }
+}
+
+.bg-parlement {
+  h3,
+  svg,
+  p  {
+    color: white;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.mt--03 {
+  margin-top: -3rem;
+}
+.mr--03 {
+  margin-right: -3rem;
+}
+.mr--04 {
+  margin-right: -4rem;
+}
+
+@media (max-width: 1200px) {
+  .mt--03 {
+    margin-top: 0;
+  }
+  .mr--03 {
+    margin-right: 0;
+  }
+  .mr--04 {
+    margin-right: 0;
+  }
+}
+
+.left-tabs-box {
+  a {
+    background-color: $parlement;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    transition: all 0.3s ease-in-out;
+    height: 5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Purista';
+
+    &.active {
+      background-color: $primary;
+      color: #fff;
+      width: 100%;
+    }
+
+    &:not(.active) {
+      &:hover {
+        background-color: $parlement-hover;
+        color: #fff;
+        width: 100%;
+      }
+    }
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 2rem;
+    }
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: #fff;
+      margin-left: auto;
+    }
+  }
+}
+
+.h-30rem {
+  height: 30rem;
+}
+
+.position-absolute-lg {
+  position: absolute;
+  @media (max-width: 992px) {
+    position: relative; 
   }
 }

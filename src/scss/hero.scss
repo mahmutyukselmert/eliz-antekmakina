@@ -83,7 +83,6 @@
 
     @media (max-width: 36rem) {
         margin-top: 94px;
-
         .carousel-inner {
             height: 50vh;
 
@@ -91,14 +90,14 @@
                 height: 50vh;
 
                 .carousel-caption {
-                    z-index: 99;
+                    z-index: 1;
                     left: 5%;
                     right: 5%;
                     align-items: center;
                     justify-content: center;
                     display: flex;
 
-                    h1 {
+                    h1, h2 {
                         font-size: 32px;
                     }
                 }
@@ -108,6 +107,208 @@
 }
 
 /*Sub Page Banner*/
+.sub-page-main {
+    &.bg-parlement-gradient {
+        @media (min-width: 1200px) {
+            background: -webkit-gradient(linear, left top, right top, color-stop(20%, $parlement), color-stop(20%, $parlement), color-stop(20%, #fff), to(#fff));
+            background: linear-gradient(90deg, $parlement 20%, $parlement 0, #fff 0, #fff);
+        }
+    }
+
+    .page-banner {
+        height: 100vh;
+        position: relative;
+        max-height: 100vh;
+        min-height: 650px;
+        &.short-banner {
+            height: 400px;
+            min-height: 400px;
+            max-height: 400px;
+
+            .page-banner-content {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                transform: translateY(0%);
+                -webkit-transform: translateY(0%);
+            }
+        }
+    }
+
+    .background-wrapper {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../images/hero-top-bg.webp");
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            background-size: cover;
+            mix-blend-mode: multiply;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #8493a2;
+            opacity: 1;
+            mix-blend-mode: multiply;
+            z-index: 0;
+        }
+    }
+
+    .page-banner-content {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        color: #fff;
+        width: calc(100% - 48px);
+
+        h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: $primary;
+        }
+
+        p.subtitle {
+            font-size: 36px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        p {
+            font-size: 21px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        p.contact-us-banner-paragraph {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+    }
+
+    @media (max-width: 1200px) {
+        .page-banner {
+            height: 100%;
+            position: relative;
+            max-height: 100vh;
+            min-height: 535px;
+        }
+    }
+
+    @media (max-width: 36rem) {
+        margin-top: 94px;
+        .page-banner {
+            min-height: 60vh;
+            height: 60vh;
+            &.short-banner {
+                .page-banner-content { 
+                    top: 130px;
+                }
+            }
+        }
+        .page-banner-content {
+            /* top: 200px; */
+            width: 100%;
+            p.subtitle {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+#produtCarouselSlider {
+    position: relative;
+    overflow: hidden;
+    margin-top: -3rem;
+
+    .carousel-inner {
+        height: 600px;
+        max-height: 600px;
+        min-height: 600px;
+
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
+
+    .carousel-controls {
+        position: relative;
+        background: transparent;
+        display: flex;
+        justify-content: end;
+        align-self: end;
+        align-items: end;
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: $primary;
+            width: 4rem;
+            height: 4rem;
+            color: #fff;
+            position: relative;
+            opacity: 1;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background-color: $primary-hover;
+                color: #fff;
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        margin-bottom: 2rem;
+        .carousel-inner {
+            height: 420px;
+            max-height: 420px;
+            min-height: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        margin-top: -5rem;
+        .carousel-inner {
+            height: 320px;
+            max-height: 320px;
+            min-height: 320px;
+        }
+    }
+}
+
+/*
 .page-banner {
     position: relative;
     overflow: hidden;
@@ -136,13 +337,18 @@
     &::after {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
+        bottom: 0;
+        right: 0;
         width: 100%;
         height: 100%;
-        background: #10171F;
         opacity: 1;
-        background: linear-gradient(90deg,rgba(16, 23, 31, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(
+            180deg,
+            rgba(35, 48, 61, 0.191) 10%,
+            rgba(35, 48, 61, 0.264) 40%,
+            rgba(35, 48, 61, 0.223) 50%,
+            rgb(35, 48, 61) 100%
+        );
         z-index: 0;
     }
 
@@ -152,28 +358,73 @@
         top: 50%;
         left: 50%;
         transform: translate(-70%, -50%);
-        
+
         h1 {
             font-size: 18px;
             font-weight: 700;
             color: $primary;
         }
+
         p.subtitle {
             font-size: 36px;
             font-weight: 600;
-            color: #fff
+            color: #fff;
         }
+
         p {
             font-size: 21px;
             font-weight: 600;
             color: #fff;
         }
+
         p.contact-us-banner-paragraph {
             font-size: 18px;
             font-weight: 600;
             color: #fff;
         }
+
+
+        @media(max-width: 992px) {
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            padding-top: 0;
+            margin-top: 0;
+            width: 100%;
+        }
+    }
+}
+*/
+
+/* İletişim */
+.contact-us-page {
+
+    .white-container {
+        padding-bottom: 3rem;
+    }
+
+    .contact-us-right-image {
+        z-index: 2;
+        position: relative;
+        padding: 0;
+        margin-right: -3rem;
+        margin-top: -3rem;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .contact-us-right-image {
+            margin-right: 0;
+            margin-top: 0;
+        }
     }
 }
 
-/* İletişim */ 
+.linear-gradient-parlement {
+    background: linear-gradient(90deg, #23303d 0%, #23303d, 100%);
+}

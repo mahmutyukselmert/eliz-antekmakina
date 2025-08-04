@@ -1,5 +1,5 @@
 {
-  "name": "antekmakina-insaat",
+  "name": "antekmakina",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -12,7 +12,8 @@
     "build-postcss": "postcss public/assets/css/main.css -o public/assets/css/main.min.css",
     "build-postcss-font": "postcss src/font.css -o public/assets/css/font.css",
     "build-js": "esbuild src/main.js --bundle --minify --outfile=public/assets/js/main.js",
-    "build": "npm run build-scss && npm run build-postcss && npm run build-postcss-font && npm run build-js",
+    "build-map-js": "esbuild src/map.js --bundle --minify --outfile=public/assets/js/map.js",
+    "build": "npm run build-scss && npm run build-postcss && npm run build-postcss-font && npm run build-js && npm run build-map-js",
     "build-image": "node src/image.js"
   },
   "author": "Mahmut Yüksel MERT",

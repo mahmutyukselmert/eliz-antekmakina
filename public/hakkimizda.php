@@ -11,168 +11,105 @@
 <body>
     <?php include 'include/header.html'; ?>
 
-    <section class="page-banner" style="background-image: url('assets/images/about-us-banner.webp');">
-        <div class="page-banner-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <h1>HİKAYEMİZ</h1>
-                        <p class="subtitle">Lorem ipsum <br> dolor sit amet</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    </div>
-                </div>
+    <main class="sub-page-main about-us-page bg-parlement-gradient-left-to-right">
+
+        <section class="page-banner">
+            <div class="background-wrapper">
+                <img src="./assets/images/hakkimizda-banner.webp" alt="Banner">
             </div>
-        </div>
-    </section>
-
-    <main class="about-us-page">
-
-        <?php /*
-        <section class="about-one-section">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-lg-6 pe-5">
-                        <img src="./assets/images/about-us-page-1.webp" alt="Antek Makina Hakkımızda" class="one-image">
-                    </div>
-                    <div class="col-lg-6 align-self-center">
-                        <h2>Biz kimiz?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="btn btn-outline-primary text-parlement rounded-0">ÇALIŞANLARIMIZLA TNAIŞIN</a>
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-lg-6 px-5 align-self-center">
-                        <h3>Ne yapıyoruz?</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="btn btn-outline-primary text-parlement rounded-0">BİLİMİ TİCARİLEŞTİRİYORUZ</a>
-                    </div>
-                    <div class="col-lg-6 ps-5">
-                        <img src="./assets/images/about-us-image-2.webp" alt="Antek Makina Hakkımızda" class="two-image">
-                    </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-lg-6 pe-5">
-                        <img src="./assets/images/about-us-image-3.webp" alt="Antek Makina Hakkımızda" class="three-image">
-                    </div>
-                    <div class="col-lg-6 align-self-center">
-                        <h4>Bunu nasıl yapıyoruz?</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="btn btn-outline-primary text-parlement rounded-0">NASIL DÜŞÜNÜYORUZ?</a>
+            <div class="page-banner-content">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-11 col-11">
+                            <h1>HAKKIMIZDA</h1>
+                            <p class="subtitle">Lorem ipsum dolor sit amet</p>
+                            <div class="row col-lg-12">
+                                <p class="subtitle">Lorem ipsum <br> dolor sit amet</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        */ ?>
 
         <section class="about-one-section mx-0 px-0">
-            <div class="row">
-                <div class="col-lg-10 bg-white">
-                    <div class="col-lg-10 ms-auto">
-
-                        <div class="row mb-5">
-                            <div class="col-lg-6 ps-0 pe-5">
-                                <img src="./assets/images/about-us-page-1.webp" alt="Antek Makina Hakkımızda" class="one-image">
-                            </div>
-                            <div class="col-lg-6 align-self-center">
-                                <h2>Biz kimiz?</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <a href="#" class="btn btn-outline-primary text-parlement rounded-0">ÇALIŞANLARIMIZLA TNAIŞIN</a>
-                            </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-lg-6 px-5 align-self-center">
-                                <h3>Ne yapıyoruz?</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <a href="#" class="btn btn-outline-primary text-parlement rounded-0">BİLİMİ TİCARİLEŞTİRİYORUZ</a>
-                            </div>
-                            <div class="col-lg-6 ps-5 two-image-area">
-                                <img src="./assets/images/about-us-image-2.webp" alt="Antek Makina Hakkımızda" class="two-image">
-                            </div>
-                        </div>
-
-                        <div class="row mt-3">
-                            <div class="col-lg-6 ps-0 pe-5">
-                                <img src="./assets/images/about-us-image-3.webp" alt="Antek Makina Hakkımızda" class="three-image">
-                            </div>
-                            <div class="col-lg-6 align-self-center">
-                                <h4>Bunu nasıl yapıyoruz?</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <a href="#" class="btn btn-outline-primary text-parlement rounded-0">NASIL DÜŞÜNÜYORUZ?</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-two-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 align-self-center">
-                        <h2>Nerede çalışıyoruz?</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                        <a href="#" class="btn btn-outline-primary text-white rounded-0 px-3 py-2">NEREDE ÇALIŞIYORUZ?</a>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="./assets/images/about-us-page-image-4.webp" alt="Antek Makina Hakkımızda" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <div class="col-lg-12 bg-white">
+                        <div class="col-lg-12">
 
-        <section class="about-three-section bg-white py-5">
-            <div class="container">
-                <div class="row">
-
-                    <h2 class="mb-3 text-primary fw-bold mb-5">PROJELERİMİZ</h2>
-
-                    <?php 
-                    $project_images = [
-                        'project-1.webp',
-                        'project-2.webp',
-                        'project-3.webp'
-                    ];
-                    for($i=1; $i<=3; $i++): ?>
-                    <div class="col-lg-4 col-12">
-                        <div class="card card-project">
-                            <div class="card-header">
-                                <img src="./assets/images/<?php echo $project_images[$i-1]; ?>" alt="Proje <?php echo $i; ?>" class="card-img-top">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Lorem ipsum dolor sit amet</h5>
-                                <p class="project-location">
-                                    Türkiye
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-detail">
-                                    <span>DETAYLI İNCELE</span>
-                                    <span class="icon">
+                            <div class="row mb-5">
+                                <div class="col-lg-6 ps-lg-0 pe-lg-5">
+                                    <div class="our-about-one-image-area">
+                                        <div class="image-box">
+                                            <img src="./assets/images/hakkimizda-gorsel-1.webp" alt="Antek Makina Hakkımızda" class="one-image">
+                                            <div class="image-mask"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 align-self-center mt-5 mt-lg-0">
+                                    <h2>HİKAYEMİZ</h2>
+                                    <h3>Lorem ipsum dolor sit amet</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <a href="hakkimizda-hikayemiz.php" class="btn btn-outline-primary text-parlement rounded-0 px-3 mt-4 py-1 w-35">
+                                        <span>HİKAYEMİZ</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="bi bi-arrow-right-short">
-                                            <path d="M571.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-144-144c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L521.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l505.4 0-116.7 116.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l144-144z" />
+                                            <path d="M571.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-144-144c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L521.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l505.4 0-116.7 116.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l144-144z"></path>
                                         </svg>
-                                    </span>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
+
+                            <div class="row mt-3">
+                                <div class="col-lg-6 px-lg-5 align-self-center">
+                                    <h2>ÇALIŞANLARIMIZ</h2>
+                                    <h3>Lorem ipsum dolor sit amet</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                                    <a href="hakkimizda-calisanlarimiz.php" class="btn btn-outline-primary text-parlement rounded-0 px-3 mt-4 py-1 w-35">
+                                        <span>ÇALIŞANLARIMIZ</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="bi bi-arrow-right-short">
+                                            <path d="M571.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-144-144c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L521.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l505.4 0-116.7 116.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l144-144z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6 two-image-area">
+                                    <div class="our-about-two-image-area">
+                                        <div class="image-box">
+                                            <img src="./assets/images/hakkimizda-gorsel-2.webp" alt="Antek Makina Hakkımızda" class="two-image">
+                                            <div class="image-mask"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <?php endfor; ?>
+                </div>
+            </div>
+        </section>
 
-                    <div class="row mt-5 justify-content-center align-items-center">
-                        <div class="col-auto text-center">
-                            <a href="#" class="btn btn-outline-primary text-parlement rounded-0 px-5 justify-content-between">
-                                <span> TÜM PROJELER </span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="bi bi-arrow-right-short">
-                                    <path d="M571.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-144-144c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L521.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l505.4 0-116.7 116.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l144-144z" />
-                                </svg>
-                            </a>
+        <section class="about-main-two-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="image-box">
+                            <img src="./assets/images/islerimiz-gorsel-1.webp" alt="Antek Makina Hakkımızda" class="img-fluid">
+                            <div class="image-mask"></div>
                         </div>
                     </div>
-
+                    <div class="col-lg-6 align-self-center">
+                        <h2 class="mt-5 mt-lg-0">İŞLERİMİZ</h2>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                        <a href="#" class="btn btn-outline-primary text-white rounded-0 px-3 mt-4 py-1 w-35">
+                            <span>İŞLERİMİZ</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="bi bi-arrow-right-short">
+                                <path d="M571.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-144-144c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L521.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l505.4 0-116.7 116.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l144-144z"></path>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

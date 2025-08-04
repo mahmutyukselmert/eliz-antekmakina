@@ -1,3 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <path fill="#fff" d="M49 8v81.78L22.94 66.97a1 1 0 0 0-.6 1.78l27 24a1 1 0 0 0 1.32 0l27-24a1 1 0 0 0-1.32-1.52L51 89.78V8a1 1 0 0 0-2 0z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="82px" viewBox="0 0 13 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>whiteScroll Down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Lycopodium---Template-1---Home-Page_V2" transform="translate(-791.000000, -801.000000)" fill="#FFFFFF">
+            <g id="HEADER">
+                <g id="Scroll-Down" transform="translate(791.000000, 801.000000)">
+                    <path d="M41.2782374,34.6954128 C41.0180914,34.4348624 40.5870354,34.4348624 40.3178146,34.6954128 C40.0584248,34.9478899 40.0584248,35.3662385 40.3178146,35.6187156 L45.1864776,40.3431193 L-33.8261916,40.3431193 C-34.2012858,40.3431193 -34.5,41.6510092 -34.5,40.9970642 C-34.5,40.3431193 -34.2012858,41.6590826 -33.8261916,41.6590826 L45.1864776,41.6590826 L40.3178146,46.3724771 C40.0584248,46.6337615 40.0584248,47.0550459 40.3178146,47.3045872 C40.5870354,47.5651376 41.0180914,47.5651376 41.2782374,47.3045872 L47.2986515,41.4616514 C47.5671162,41.2091743 47.5671162,40.7908257 47.2986515,40.5412844 L41.2782374,34.6954128 Z" id="Scroll-Arrow" transform="translate(6.500000, 41.000000) rotate(-270.000000) translate(-6.500000, -41.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

@@ -69,9 +69,9 @@ document.querySelectorAll(".countup").forEach((el) => {
 /* CountUp.js - End */
 
 document.addEventListener("DOMContentLoaded", function () {
-  const dropdown = document.querySelector(".custom-dropdown-menu");
+  const dropdowns = document.querySelectorAll(".custom-dropdown-menu");
 
-  if (dropdown) {
+  dropdowns.forEach(function (dropdown) {
     const toggle = dropdown.querySelector(".dropdown-toggle");
     const menu = dropdown.querySelector(".dropdown-menu");
 
@@ -94,11 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
     toggle.addEventListener("click", function (e) {
       e.preventDefault();
       if (window.innerWidth >= 1200) {
-        e.preventDefault();
         return (window.location.href = toggle.getAttribute("href"));
       } else {
         if (!clickedOnce) {
-          e.preventDefault();
           toggle.classList.add("show");
           menu.classList.add("show");
           clickedOnce = true;
@@ -107,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
-  }
+  });
 });
 
 /* HomePage Projects */
@@ -118,77 +116,110 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.getElementById("nextBtn");
   let currentIndex = 1; // Aktif (ortadaki) kartın indeksi
 
-  // Carousel'i başlangıç pozisyonuna ayarla
-  function updateCarouselPosition() {
-    const viewportWidth = document.querySelector(".custom-carousel-viewport").offsetWidth;
-    let offset = 0;
+  if (carouselTrack && items.length > 0 && prevBtn && nextBtn) {
 
-    // Aktif kartın sol kenarını viewport'un ortasına getirmek için kaydırma hesapla
-    // Bu, aktif kartın genişliğini ve solundaki kartların toplam genişliğini hesaba katmalıdır.
+    // Carousel'i başlangıç pozisyonuna ayarla
+    function updateCarouselPosition() {
+      const viewportWidth = document.querySelector(".custom-carousel-viewport").offsetWidth;
+      let offset = 0;
 
-    // İlk olarak tüm kartların aktif/pasif genişliklerini belirle
-    let itemWidths = Array.from(items).map((item, index) => {
-      if (index === currentIndex) {
-        // Aktif kartın genişliği (CSS'ten alınacak veya sabit bir değer)
-        // Geniş ekranlarda %50, tabletlerde %70, mobilde %100
-        if (window.innerWidth >= 992) return viewportWidth * 0.5; // 50%
-        else if (window.innerWidth >= 768) return viewportWidth * 0.7; // 70%
-        else return viewportWidth * 1; // 100%
-      } else {
-        // Pasif kartların genişliği (CSS'ten alınacak veya sabit bir değer)
-        // Geniş ekranlarda %33.33, tabletlerde %50, mobilde %100
-        if (window.innerWidth >= 992) return viewportWidth * 0.3333; // 33.33%
-        else if (window.innerWidth >= 768) return viewportWidth * 0.5; // 50%
-        else return viewportWidth * 1; // 100%
+      // Aktif kartın sol kenarını viewport'un ortasına getirmek için kaydırma hesapla
+      // Bu, aktif kartın genişliğini ve solundaki kartların toplam genişliğini hesaba katmalıdır.
+
+      // İlk olarak tüm kartların aktif/pasif genişliklerini belirle
+      let itemWidths = Array.from(items).map((item, index) => {
+        if (index === currentIndex) {
+          // Aktif kartın genişliği (CSS'ten alınacak veya sabit bir değer)
+          // Geniş ekranlarda %50, tabletlerde %70, mobilde %100
+          if (window.innerWidth >= 992) return viewportWidth * 0.5; // 50%
+          else if (window.innerWidth >= 768) return viewportWidth * 0.7; // 70%
+          else return viewportWidth * 1; // 100%
+        } else {
+          // Pasif kartların genişliği (CSS'ten alınacak veya sabit bir değer)
+          // Geniş ekranlarda %33.33, tabletlerde %50, mobilde %100
+          if (window.innerWidth >= 992) return viewportWidth * 0.3333; // 33.33%
+          else if (window.innerWidth >= 768) return viewportWidth * 0.5; // 50%
+          else return viewportWidth * 1; // 100%
+        }
+      });
+
+      // Solundaki kartların toplam genişliğini hesapla
+      for (let i = 0; i < currentIndex; i++) {
+        offset += itemWidths[i];
       }
-    });
 
-    // Solundaki kartların toplam genişliğini hesapla
-    for (let i = 0; i < currentIndex; i++) {
-      offset += itemWidths[i];
+      // Aktif kartın kendi genişliği
+      const activeItemActualWidth = itemWidths[currentIndex];
+
+      // Aktif kartı ortalamak için ek kaydırma
+      // (Viewport genişliği - Aktif kartın genişliği) / 2 - Solundaki kartların toplam genişliği
+      // Bu, aktif kartın sol kenarını viewport'un soluna hizalar, sonra ortalar.
+      const centerOffset = viewportWidth / 2 - activeItemActualWidth / 2;
+
+      // Toplam kaydırma miktarı
+      const totalTranslateX = -(offset - centerOffset);
+
+      carouselTrack.style.transform = `translateX(${totalTranslateX}px)`;
+
+      // Aktif sınıfı güncelle
+      items.forEach((item, index) => {
+        item.classList.remove("active-center");
+        if (index === currentIndex) {
+          item.classList.add("active-center");
+        }
+      });
     }
 
-    // Aktif kartın kendi genişliği
-    const activeItemActualWidth = itemWidths[currentIndex];
+    // Sonraki karta geç
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateCarouselPosition();
+    }
 
-    // Aktif kartı ortalamak için ek kaydırma
-    // (Viewport genişliği - Aktif kartın genişliği) / 2 - Solundaki kartların toplam genişliği
-    // Bu, aktif kartın sol kenarını viewport'un soluna hizalar, sonra ortalar.
-    const centerOffset = viewportWidth / 2 - activeItemActualWidth / 2;
+    // Önceki karta geç
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateCarouselPosition();
+    }
 
-    // Toplam kaydırma miktarı
-    const totalTranslateX = -(offset - centerOffset);
+    // Butonlara tıklama olaylarını ekle
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
 
-    carouselTrack.style.transform = `translateX(${totalTranslateX}px)`;
+    // Pencere boyutu değiştiğinde carousel'i yeniden konumlandır
+    window.addEventListener("resize", updateCarouselPosition);
 
-    // Aktif sınıfı güncelle
-    items.forEach((item, index) => {
-      item.classList.remove("active-center");
-      if (index === currentIndex) {
-        item.classList.add("active-center");
-      }
-    });
-  }
-
-  // Sonraki karta geç
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % items.length;
+    // Sayfa yüklendiğinde ve ilk kez carousel'i ayarla
     updateCarouselPosition();
+    
   }
-
-  // Önceki karta geç
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarouselPosition();
-  }
-
-  // Butonlara tıklama olaylarını ekle
-  nextBtn.addEventListener("click", nextSlide);
-  prevBtn.addEventListener("click", prevSlide);
-
-  // Pencere boyutu değiştiğinde carousel'i yeniden konumlandır
-  window.addEventListener("resize", updateCarouselPosition);
-
-  // Sayfa yüklendiğinde ve ilk kez carousel'i ayarla
-  updateCarouselPosition();
 });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+// Gözlemlemek istediğin tüm elementleri seç:
+document.querySelectorAll('.image-box').forEach(el => observer.observe(el));
+
+// "Who Are We" bölümünün görünürlüğünü izlemek için Intersection Observer kullan
+const targetWhoAreWe = document.querySelector('.who-are-we');
+const observerWhoAreWe = new IntersectionObserver(
+  ([entry]) => {
+    if (!entry.isIntersecting) {
+      targetWhoAreWe.classList.add('scrolled');
+    } else {
+      targetWhoAreWe.classList.remove('scrolled');
+    }
+  },
+  {
+    threshold: 0.2 // %20 görünüyorsa bile "görünür" say
+  }
+);
+
+if (targetWhoAreWe) observerWhoAreWe.observe(targetWhoAreWe);

@@ -1,0 +1,155 @@
+{
+  "regions": [
+    {
+      "id": "australasia",
+      "name": "Australasia",
+      "center": [-25.2744, 133.7751],
+      "zoom": 3,
+      "countries": [
+        {
+          "id": "australia",
+          "name": "Australia",
+          "center": [-25.2744, 133.7751],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "tropicana_gold_mine",
+              "name": "Tropicana Gold Mine",
+              "resources": ["Au"],
+              "company": "AngloGold Ashanti Australia Limited",
+              "coordinates": [-32.2022, 122.2494],
+              "blurb": "The Tropicana Gold Mine is a joint venture between AngloGold Ashanti...",
+              "link": "proje-detay.php"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "africa",
+      "name": "Africa",
+      "center": [0.0, 20.0],
+      "zoom": 5,
+      "countries": [
+        {
+          "id": "cote_divoire",
+          "name": "Côte d'Ivoire",
+          "center": [7.5399, -5.5471],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "sissingue_gold_project",
+              "name": "Sissingué Gold Project",
+              "resources": ["Au"],
+              "company": "Perseus Mining",
+              "coordinates": [8.4042, -5.3059],
+              "blurb": "The Sissingué Gold Project is a conventional gold carbon-in-leach plant...",
+              "link": "proje-detay.php"
+            }
+          ]
+        },
+        {
+          "id": "ghana",
+          "name": "Ghana",
+          "center": [7.9465, -1.0232],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "akyem_gold_project",
+              "name": "Akyem Gold Project",
+              "resources": ["Au"],
+              "company": "Newmont Golden Ridge Limited",
+              "coordinates": [6.1362, -0.6698],
+              "blurb": "Lycopodium was engaged to deliver Stages 4 and 5 of the Akyem project...",
+              "link": "proje-detay.php"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "europe",
+      "name": "Europe",
+      "center": [54.5260, 15.2551],
+      "zoom": 3,
+      "countries": [
+        {
+          "id": "finland",
+          "name": "Finland",
+          "center": [64.0, 26.0],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "kittilä_gold_mine",
+              "name": "Kittilä Gold Mine",
+              "resources": ["Au"],
+              "company": "Agnico Eagle Mines Limited",
+              "coordinates": [67.6833, 24.9833],
+              "blurb": "The Kittilä Gold Mine is the largest gold mine in Europe...",
+              "link": "proje-detay.php"
+            }
+          ]
+        },
+        {
+          "id": "russia",
+          "name": "Russia",
+          "center": [61.5240, 105.3188],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "olympiada_gold_mine",
+              "name": "Olympiada Gold Mine",
+              "resources": ["Au"],
+              "company": "Polyus Gold International Limited",
+              "coordinates": [56.1667, 60.1167],
+              "blurb": "The Olympiada Gold Mine is one of the largest gold mines in Russia...",
+              "link": "proje-detay.php"
+            }
+          ]
+        },
+        {
+          "id": "turkey",
+          "name": "Turkey",
+          "center": [38.9637, 35.2433],
+          "zoom": 5,
+          "projects": [
+            {
+              "id": "kisladag_gold_mine",
+              "name": "Kışladağ Gold Mine",
+              "resources": ["Au"],
+              "company": "Eliz Yazilim Sanayi ve Ticaret A.Ş.",
+              "coordinates": [38.9637, 35.2433],
+              "blurb": "Kışladağ Gold Mine is one of the largest gold mines in Turkey...",
+              "link": "proje-detay.php"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "americas",
+      "name": "Americas",
+      "center": [39.0, -98.0],
+      "zoom": 5,
+      "countries": [
+        {
+          "id": "panama",
+          "name": "Panama",
+          "center": [8.5380, -80.7821],
+          "zoom": 6,
+          "projects": [
+            {
+              "id": "cobre_panama_ball_mill",
+              "name": "Cobré Panama Ball Mill 6 Project",
+              "resources": ["Cu", "Au", "Mo", "Ag"],
+              "company": "First Quantum Minerals Limited",
+              "coordinates": [8.8358, -80.7513],
+              "blurb": "The Cobré Panama Project involves the mining of three open pits...",
+              "link": "proje-detay.php"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
