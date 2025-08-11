@@ -68,6 +68,7 @@ document.querySelectorAll(".countup").forEach((el) => {
 });
 /* CountUp.js - End */
 
+//Custom Dropdown
 document.addEventListener("DOMContentLoaded", function () {
   const dropdowns = document.querySelectorAll(".custom-dropdown-menu");
 
@@ -106,6 +107,37 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Alt menü (dropdown-submenu) için yeni kod
+  const subDropdowns = document.querySelectorAll(".dropdown-submenu");
+
+  subDropdowns.forEach(function (subDropdown) {
+    const subToggle = subDropdown.querySelector(".dropdown-toggle");
+    const subMenu = subDropdown.querySelector(".dropdown-menu");
+
+    // Masaüstü ekranlarda hover ile açılmasını sağlar
+    if (window.innerWidth >= 1200) {
+      subDropdown.addEventListener("mouseenter", () => {
+        subToggle.classList.add("show");
+        subMenu.classList.add("show");
+      });
+
+      subDropdown.addEventListener("mouseleave", () => {
+        subToggle.classList.remove("show");
+        subMenu.classList.remove("show");
+      });
+    }
+
+    // Mobil cihazlarda tıklama ile açılmasını sağlar
+    subToggle.addEventListener("click", function (e) {
+      if (window.innerWidth < 1200) {
+        e.preventDefault(); // Linke gitmeyi engelle
+        subToggle.classList.toggle("show");
+        subMenu.classList.toggle("show");
+      }
+    });
+  });
+
 });
 
 /* HomePage Projects */
@@ -206,6 +238,28 @@ const observer = new IntersectionObserver((entries) => {
 
 // Gözlemlemek istediğin tüm elementleri seç:
 document.querySelectorAll('.image-box').forEach(el => observer.observe(el));
+
+// "Who Are We" bölümünün görünürlüğünü izlemek için Intersection Observer
+const targetWhatWeDo = document.querySelector('.what-we-do');
+const observerWhatWeDo = new IntersectionObserver(
+  ([entry]) => {
+    const btn = targetWhatWeDo.querySelector('a.btn');
+    if (!entry.isIntersecting) {
+      targetWhatWeDo.classList.add('scrolled');
+      btn.classList.add('btn-outline-parlement');
+      btn.classList.remove('btn-outline-white');
+    } else {
+      targetWhatWeDo.classList.remove('scrolled');
+      btn.classList.add('btn-outline-white');
+      btn.classList.remove('btn-outline-parlement');
+    }
+  },
+  {
+    threshold: 0.60 // %60 görünüyorsa bile görünür say
+  }
+);
+
+if (targetWhatWeDo) observerWhatWeDo.observe(targetWhatWeDo);
 
 // "Who Are We" bölümünün görünürlüğünü izlemek için Intersection Observer kullan
 const targetWhoAreWe = document.querySelector('.who-are-we');

@@ -24,7 +24,6 @@
                             <h1>HAKKIMIZDA</h1>
                             <p class="subtitle">Lorem ipsum dolor sit amet</p>
                             <div class="row col-lg-12">
-                                <p class="subtitle">Lorem ipsum <br> dolor sit amet</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                             </div>
                         </div>

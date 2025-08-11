@@ -80,6 +80,7 @@
   &.text-parlement {
     &:hover {
       color: #fff !important;
+
       svg {
         fill: #fff !important;
       }
@@ -98,6 +99,7 @@
     svg {
       fill: #fff;
     }
+
     &::before {
       width: 100%;
       z-index: -1;
@@ -109,6 +111,7 @@
   &::before {
     background-color: $parlement;
   }
+
   svg {
     color: $parlement;
   }
@@ -116,12 +119,15 @@
   &:hover {
     background-color: $parlement;
     color: #fff;
+
     span {
       color: #fff;
     }
+
     svg {
       fill: #fff;
     }
+
     &::before {
       width: 100%;
       z-index: -1;
@@ -133,11 +139,14 @@
   display: inline-block;
   width: 1.4rem;
   height: 5.3rem;
-  background: url("../images/arrow-down-thing.svg") no-repeat center center;
+  background-color: #fff;
+  mask: url('../images/arrow-down-thing.svg') no-repeat center;
+  -webkit-mask: url('../images/arrow-down-thing.svg') no-repeat center;
   background-size: auto;
 }
 
 @keyframes bounce-down {
+
   0%,
   100% {
     transform: translateY(0);
@@ -164,9 +173,11 @@
 .fs-32 {
   font-size: 2rem;
 }
+
 .fs-30 {
   font-size: 1.875rem;
 }
+
 .fs-18 {
   font-size: 1.125rem;
 }
@@ -176,11 +187,13 @@
   font-weight: 600;
   color: #23303d;
 }
+
 .custom-title-2 {
   font-size: 1.5rem;
   font-weight: 600;
   color: #23303d;
 }
+
 .page-paragraph-1 {
   p {
     font-size: 1.125rem;
@@ -224,19 +237,12 @@
     transition: all 0.5s ease-in-out;
   }
 
-  /* Aktif (Ortadaki) Kart */
-  .custom-carousel-item.active-center {
-    width: 50%;
-    /* Aktif kartın genişliği */
-    opacity: 1;
-    /* Tamamen görünür */
-    transform: scale(0.95);
-    /* Normal boyut */
-    z-index: 1;
-
-    .card-left-content {
-      display: flex;
-    }
+  .custom-carousel-card-wrapper {
+    display: flex;
+    height: 100%;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
   }
 
   /* Proje Kartının İç Yapısı */
@@ -246,23 +252,36 @@
     display: flex;
     background-color: #ffffff;
     flex-direction: row;
-    justify-content: center;
+    height: 100%;
+    width: 100%;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
   }
 
   .card-left-content {
-    flex: 1;
-    /* Sol tarafın esnek büyümesini sağla */
-    max-width: 350px;
-    max-height: 540px;
-    min-height: 540px;
-    padding: 50px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    /* İçindeki öğeler için konumlandırma */
-    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.08), -10px 0px 15px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    z-index: 1;
     display: none;
+    opacity: 1;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: opacity .5s cubic-bezier(.55, .085, .68, .53);
+    transition: opacity .5s cubic-bezier(.55, .085, .68, .53);
+    -webkit-transition-delay: .46s;
+    transition-delay: .46s;
+    -webkit-box-shadow: -1px 0 20px 0 rgba(29, 29, 29, .27058823529411763);
+    box-shadow: -1px 0 20px 0 rgba(29, 29, 29, .27058823529411763);
+    order: 1;
+    width: 60%;
+    min-width: 450px;
+    flex-direction: column;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    padding: 80px 64px 32px;
 
     .card-body {
       padding: 0;
@@ -271,23 +290,32 @@
   }
 
   .card-right-image {
-    width: 500px;
-    /* Görsel alanı için sabit genişlik */
-    min-width: 500px;
-    max-height: 450px;
-    min-height: 450px;
-    display: flex;
+    width: 100%;
+    height: 500px;
+    -webkit-transition: opacity .6s ease-in;
+    transition: opacity .6s ease-in;
+    -webkit-transition-delay: .45s;
+    transition-delay: .45s;
+    opacity: 1;
+    -ms-flex-order: 2;
+    order: 2;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    align-self: center;
-    border-radius: 0;
-    /* Sağ taraf için yuvarlak köşeler */
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    opacity: 1;
+    overflow: hidden;
   }
 
   .card-right-image img {
-    width: 100%;
-    height: 450px;
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   .card-title {
@@ -364,8 +392,29 @@
 
   .carousel-control-next-btn {
     right: 0;
-  } 
+  }
 
+  /* Aktif (Ortadaki) Kart */
+  .custom-carousel-item.active-center {
+    width: 50%;
+    /* Aktif kartın genişliği */
+    opacity: 1;
+    /* Tamamen görünür */
+    transform: scale(0.95);
+    /* Normal boyut */
+    z-index: 1;
+
+    .card-left-content {
+      display: flex;
+      height: 100%;
+    }
+
+    .custom-carousel-card-wrapper {
+      width: 100%;
+      position: relative;
+      height: 650px;
+    }
+  }
 
   @media (max-width: 1440px) {
     .card-slide-project {
@@ -376,8 +425,8 @@
 
   @media (max-width: 1200px) {
     .carousel-controls {
-              left: 18%;
-        right: 13%;
+      left: 18%;
+      right: 13%;
     }
 
     .custom-carousel-item {
@@ -404,6 +453,13 @@
   }
 
   /* Responsive Ayarlamalar */
+  @media (min-width: 1600px) {
+    .card-left-content {
+      height: auto;
+      width: 450px;
+    }
+  }
+
   @media (max-width: 992px) {
     .custom-carousel-container {
       padding: 0 60px;
@@ -416,29 +472,25 @@
 
     .custom-carousel-item {
       width: 50%;
-      /* Tabletlerde 2 item göster */
+      padding: 0;
     }
 
     .custom-carousel-item.active-center {
-      width: 70%;
-      /* Tabletlerde aktif kartın genişliği */
-    }
+      width: 100%;
 
-    .card-slide-project {
-      height: 350px;
+      .custom-carousel-card-wrapper {
+        height: auto;
+      }
+
+      .card-slide-project {
+        flex-direction: column-reverse;
+      }
     }
 
     .card-left-content {
       padding: 25px;
-    }
-
-    .card-right-image {
-      width: 200px;
-      min-width: 180px;
-    }
-
-    .card-right-image img {
-      max-height: 180px;
+      min-width: auto;
+      width: 100%;
     }
 
     .card-title {
@@ -472,17 +524,14 @@
       /* Mobil cihazlarda tek item göster */
       opacity: 1;
       transform: scale(1);
-              margin: 0;
+      margin: 0;
     }
 
     .custom-carousel-item.active-center {
-      width: 100%;
-      /* Aktif kart her zaman tam genişlik */
-    }
-
-    .card-slide-project {
-      flex-direction: column-reverse;
-      height: auto;
+      .home-projects-section .card-slide-project {
+        flex-direction: column-reverse;
+        height: auto;
+      }
     }
 
     .card-left-content {
@@ -494,14 +543,13 @@
 
     .card-right-image {
       width: 100%;
-      height: 100%;
+      height: -webkit-fill-available;
+      max-height: 300px;
       border-radius: 0;
       padding: 0;
       min-height: auto;
-    }
-
-    .card-right-image img {
-      max-height: 180px;
+      min-width: auto;
+      position: relative;
     }
 
     .card-title {
@@ -609,6 +657,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -632,7 +681,8 @@
 }
 
 .visible img {
-  animation: showImage 1.5s ease 1.5s both; /* 2s sonra başlasın */
+  animation: showImage 1.5s ease 1.5s both;
+  /* 2s sonra başlasın */
 }
 
 #productSwiper {
@@ -640,12 +690,14 @@
   min-height: 600px;
   max-height: 600px;
   border-radius: 1rem;
+
   .swiper-wrapper {
     .swiper-slide {
       position: relative;
       width: 100%;
       padding-top: 100%;
       overflow: hidden;
+
       img {
         position: absolute;
         top: 0;
@@ -668,6 +720,7 @@
 .w-35 {
   width: 35%;
   max-width: none !important;
+
   @media (max-width: 992px) {
     width: auto;
     max-width: max-content !important;
@@ -675,9 +728,10 @@
 }
 
 .bg-parlement {
+
   h3,
   svg,
-  p  {
+  p {
     color: white;
   }
 }
@@ -696,9 +750,11 @@
 .mt--03 {
   margin-top: -3rem;
 }
+
 .mr--03 {
   margin-right: -3rem;
 }
+
 .mr--04 {
   margin-right: -4rem;
 }
@@ -707,9 +763,11 @@
   .mt--03 {
     margin-top: 0;
   }
+
   .mr--03 {
     margin-right: 0;
   }
+
   .mr--04 {
     margin-right: 0;
   }
@@ -749,6 +807,7 @@
       height: 3rem;
       margin-right: 2rem;
     }
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -764,7 +823,195 @@
 
 .position-absolute-lg {
   position: absolute;
+
   @media (max-width: 992px) {
-    position: relative; 
+    position: relative;
   }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    left: -1px;
+    right: 0;
+    width: 0
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+    right: auto
+  }
+
+  to {
+    width: 0;
+    left: 100%;
+    right: auto
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    left: -1px;
+    right: 0;
+    width: 0
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+    right: auto
+  }
+
+  to {
+    width: 0;
+    left: 100%;
+    right: auto
+  }
+}
+
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: scale(1) translate3d(-100%, 0, 0);
+    transform: scale(1) translate3d(-100%, 0, 0)
+  }
+
+  to {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0)
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: scale(1) translate3d(-100%, 0, 0);
+    transform: scale(1) translate3d(-100%, 0, 0)
+  }
+
+  to {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0)
+  }
+}
+
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0)
+  }
+
+  to {
+    -webkit-transform: scale(1) translate3d(100%, 0, 0);
+    transform: scale(1) translate3d(100%, 0, 0)
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0)
+  }
+
+  to {
+    -webkit-transform: scale(1) translate3d(100%, 0, 0);
+    transform: scale(1) translate3d(100%, 0, 0)
+  }
+}
+
+@-webkit-keyframes textFadeIn {
+  0% {
+    color: hsla(0, 0%, 100%, 0)
+  }
+
+  90% {
+    color: hsla(0, 0%, 100%, .05)
+  }
+
+  to {
+    color: #fff
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    color: hsla(0, 0%, 100%, 0)
+  }
+
+  90% {
+    color: hsla(0, 0%, 100%, .05)
+  }
+
+  to {
+    color: #fff
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+  }
+}
+
+.fs-21 {
+  font-size: 1.3125rem;
+}
+
+.max-width-fit {
+  max-width: fit-content;
 }

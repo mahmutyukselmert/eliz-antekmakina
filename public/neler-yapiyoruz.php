@@ -22,8 +22,10 @@
                             <h1>Neler Yapıyoruz?</h1>
                             <div class="row col-lg-12">
                                 <p class="subtitle">Lorem ipsum dolar sit amet.</p>
-                                <div class="row col-lg-6">
-                                    <p class="contact-us-banner-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <p class="contact-us-banner-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

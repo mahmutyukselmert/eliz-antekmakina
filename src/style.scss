@@ -162,6 +162,8 @@ header {
         transition: all 0.3s ease-in-out;
         margin: 1rem 2rem 1rem 0;
         text-transform: uppercase;
+        text-align: left;
+        justify-content: left;
 
         &:hover {
           background-color: transparent;
@@ -183,6 +185,41 @@ header {
 
         .dropdown-item {
           margin: 0;
+        }
+      }
+    }
+
+    .dropdown-submenu {
+      position: relative; // Alt menünün pozisyonunu belirler
+
+      .dropdown-menu {
+        margin-left: 0rem;
+        left: 100%; // Sağ tarafta açılmasını sağlar
+        top: 0;
+        margin-top: -1px; // Dikey hizalamayı ayarlar
+        visibility: hidden; // Varsayılan olarak gizler
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover > .dropdown-menu {
+        // Hover durumunda alt menüyü görünür yapar
+        visibility: visible;
+        opacity: 1;
+      }
+
+      // Mobil görünüm için
+      @media (max-width: 991px) {
+        .dropdown-menu {
+          position: relative;
+          left: 0;
+          top: 0;
+          margin-top: 0;
+          display: none; // Gizler
+        }
+
+        &:hover > .dropdown-menu {
+          display: block; // Görünür yapar
         }
       }
     }
@@ -301,6 +338,27 @@ header {
     text-align: center;
     z-index: 2;
     margin-bottom: 3rem;
+  }
+
+  &.scrolled {
+    &::before {
+      background-color: #fff;
+    }
+    img {
+      opacity: 0.3;
+    }
+    p {
+      color: $parlement;
+    }
+    a.btn {
+      color: $parlement;
+      border: 1px solid $parlement;
+    }
+    a.scroll-to-go {
+      .arrow-down-long {
+        background-color: $parlement;
+      }
+    }
   }
 
   @media (max-width: 36rem) {
@@ -437,6 +495,7 @@ header {
 }
 
 .we-are-join-us {
+  position: relative;
   background-color: $parlement;
   padding: 6rem 0;
 
