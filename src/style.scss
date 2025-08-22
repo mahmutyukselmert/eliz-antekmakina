@@ -5,13 +5,15 @@ $custom-gray: rgb(124, 124, 124);
 $parlement: #23303d;
 $parlement-hover: #16212c;
 
-$custom-theme-colors: ("primary": $primary,
+$custom-theme-colors: (
+  "primary": $primary,
   "gray": $custom-gray,
   "white": #fff,
   "parlement": $parlement,
 );
 
-$grid-breakpoints: (xs: 0,
+$grid-breakpoints: (
+  xs: 0,
   sm: 36rem,
   md: 48rem,
   lg: 62rem,
@@ -20,7 +22,8 @@ $grid-breakpoints: (xs: 0,
   xxxl: 100rem,
 );
 
-$container-max-widths: (sm: 33.75rem,
+$container-max-widths: (
+  sm: 33.75rem,
   md: 45rem,
   lg: 60rem,
   xl: 71.25rem,
@@ -28,7 +31,8 @@ $container-max-widths: (sm: 33.75rem,
   xxxl: 1440px,
 );
 
-@use "../node_modules/bootstrap/scss/bootstrap"with ($theme-colors: $custom-theme-colors,
+@use "../node_modules/bootstrap/scss/bootstrap" with (
+  $theme-colors: $custom-theme-colors,
   $form-check-input-checked-bg-color: $primary,
   $form-check-input-checked-border-color: $primary,
   $input-placeholder-color: #fff,
@@ -36,7 +40,8 @@ $container-max-widths: (sm: 33.75rem,
   $link-color: $primary,
   $link-hover-color: $primary,
   $grid-breakpoints: $grid-breakpoints,
-  $container-max-widths: $container-max-widths);
+  $container-max-widths: $container-max-widths
+);
 
 @import "./scss/components";
 
@@ -141,7 +146,7 @@ header {
 
     .dropdown-menu {
       position: absolute;
-      padding: 0.5rem 0rem;
+      padding: 0.5rem 0 0 0rem;
       border-radius: 0 !important;
       border-left: none;
       border-right: none;
@@ -152,29 +157,80 @@ header {
 
       li {
         background-color: transparent;
-      }
-
-      .dropdown-item {
-        font-size: 0.875rem;
-        font-weight: 600;
-        font-family: "Purista";
-        color: #23303d;
-        transition: all 0.3s ease-in-out;
-        margin: 1rem 2rem 1rem 0;
-        text-transform: uppercase;
-        text-align: left;
-        justify-content: left;
-
-        &:hover {
-          background-color: transparent;
-          color: $primary;
+        &:last-child {
+          padding-bottom: 0.5rem;
         }
-      }
 
-      .dropdown-item.active,
-      .dropdown-item:active {
-        color: $primary;
-        background-color: transparent;
+        &.dropdown-submenu {
+          position: relative; // Alt menünün pozisyonunu belirler
+
+          .dropdown-item {
+            padding-bottom: 0rem;
+            &.dropdown-toggle {
+              padding-bottom: 0.5rem;
+            }
+          }
+
+          .dropdown-menu {
+            left: 100%; // Sağ tarafta açılmasını sağlar
+            top: 0;
+            margin-top: -1px; // Dikey hizalamayı ayarlar
+            visibility: hidden; // Varsayılan olarak gizler
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            li {
+              a {
+                padding: 0.5rem 1rem;
+                margin: 0;
+              }
+            }
+          }
+
+          &:hover > .dropdown-menu {
+            // Hover durumunda alt menüyü görünür yapar
+            visibility: visible;
+            opacity: 1;
+          }
+
+          // Mobil görünüm için
+          @media (max-width: 991px) {
+            .dropdown-menu {
+              position: relative;
+              left: 0;
+              top: 0;
+              margin-top: 0;
+              display: none; // Gizler
+            }
+
+            &:hover > .dropdown-menu {
+              display: block; // Görünür yapar
+            }
+          }
+        }
+
+        .dropdown-item {
+          font-size: 0.875rem;
+          font-weight: 600;
+          font-family: "Purista";
+          color: #23303d;
+          transition: all 0.3s ease-in-out;
+          margin: 0;
+          padding: 0.8rem 1rem 0.8rem 1rem;
+          text-transform: uppercase;
+          text-align: left;
+          justify-content: left;
+
+          &:hover {
+            background-color: transparent;
+            color: $primary;
+          }
+        }
+
+        .dropdown-item.active,
+        .dropdown-item:active {
+          color: $primary;
+          background-color: transparent;
+        }
       }
 
       @media (max-width: 991px) {
@@ -186,40 +242,11 @@ header {
         .dropdown-item {
           margin: 0;
         }
-      }
-    }
 
-    .dropdown-submenu {
-      position: relative; // Alt menünün pozisyonunu belirler
-
-      .dropdown-menu {
-        margin-left: 0rem;
-        left: 100%; // Sağ tarafta açılmasını sağlar
-        top: 0;
-        margin-top: -1px; // Dikey hizalamayı ayarlar
-        visibility: hidden; // Varsayılan olarak gizler
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-      }
-
-      &:hover > .dropdown-menu {
-        // Hover durumunda alt menüyü görünür yapar
-        visibility: visible;
-        opacity: 1;
-      }
-
-      // Mobil görünüm için
-      @media (max-width: 991px) {
-        .dropdown-menu {
-          position: relative;
-          left: 0;
-          top: 0;
-          margin-top: 0;
-          display: none; // Gizler
-        }
-
-        &:hover > .dropdown-menu {
-          display: block; // Görünür yapar
+        .dropdown-submenu {
+          .dropdown-menu {
+            margin-left: 1rem;
+          }
         }
       }
     }
@@ -613,7 +640,7 @@ header {
         position: relative;
       }
     }
-  }  
+  }
 }
 
 .contact-info-card {
@@ -763,6 +790,7 @@ footer {
     display: inline-block;
     right: 0rem;
     bottom: 0rem;
+    z-index: 2;
 
     .language-btn {
       background-color: $parlement;
@@ -878,13 +906,15 @@ main.about-us-page {
 
   &.bg-parlement-gradient-left-to-right {
     @media (min-width: 1200px) {
-      background: -webkit-gradient(linear,
-          left top,
-          right top,
-          color-stop(12%, $parlement),
-          color-stop(12%, $parlement),
-          color-stop(88%, #fff),
-          to(#fff));
+      background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(12%, $parlement),
+        color-stop(12%, $parlement),
+        color-stop(88%, #fff),
+        to(#fff)
+      );
       background: linear-gradient(90deg, #fff 88%, #fff 0, $parlement 0, $parlement);
     }
   }
@@ -952,7 +982,7 @@ main.about-us-page {
 
     @media (max-width: 36rem) {
       .our-about-two-image-area {
-        position:relative;
+        position: relative;
         margin-right: 0;
         margin-top: 2rem;
       }
@@ -964,7 +994,6 @@ main.about-us-page {
   }
 
   section.about-story-section {
-
     h2,
     h3,
     h4 {
@@ -1251,13 +1280,15 @@ main.about-us-page {
 .sub-page-main {
   &.bg-parlement-gradient-left-to-right {
     @media (min-width: 1200px) {
-      background: -webkit-gradient(linear,
-          left top,
-          right top,
-          color-stop(12%, $parlement),
-          color-stop(12%, $parlement),
-          color-stop(88%, #fff),
-          to(#fff));
+      background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(12%, $parlement),
+        color-stop(12%, $parlement),
+        color-stop(88%, #fff),
+        to(#fff)
+      );
       background: linear-gradient(90deg, #fff 88%, #fff 0, $parlement 0, $parlement);
     }
   }
@@ -1379,7 +1410,7 @@ main.about-us-page {
     }
   }
 
-  @media(max-width: 36rem) {
+  @media (max-width: 36rem) {
     padding: 3rem 0;
   }
 }
@@ -1521,8 +1552,8 @@ main.about-us-page {
     background-color: #23303d;
     position: absolute;
     pointer-events: auto;
-    -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     overflow-y: auto;
     position: absolute;
@@ -1545,7 +1576,7 @@ main.about-us-page {
         width: 24px;
         height: 24px;
         fill: $parlement;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
 
       &:hover {
@@ -1627,7 +1658,7 @@ main.about-us-page {
         }
 
         .project-item {
-          font-size: .9em;
+          font-size: 0.9em;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -1650,7 +1681,6 @@ main.about-us-page {
             height: 24px;
           }
         }
-
       }
     }
   }
@@ -1667,5 +1697,88 @@ main.about-us-page {
       height: 30vh;
     }
   }
+}
 
+.representation-card {
+  border: 0;
+  img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 0;
+  }
+  .card-body {
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 0;
+    a {
+      margin: 0;
+      padding: 0;
+      h2 {
+        margin: 0;
+        padding: 0.5rem 1rem 0.8rem;
+        line-height: 2rem;
+        margin-block-start: 0;
+        margin-block-end: 0;
+      }
+    }
+  }
+}
+.representation-list {
+  li {
+    margin-bottom: 0.9rem !important;
+    border-left: 3px solid #ccc;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    a {
+      font-size: 1rem;
+      text-decoration: none;
+      color: #fff;
+      padding-left: 0.3rem;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      border-color: $primary;
+      a {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.representation-product-card {
+  position: relative;
+  border: 0;
+  img {
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
+  a {
+    text-decoration: none;
+    .card-title {
+      position: relative;
+      z-index: 2;
+      margin-top: -2rem;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #f5f5f5;
+      color: #444;
+      font-size: 1.125rem;
+    }
+    &::after {
+      z-index: 99;
+    }
+  }
+  &:hover {
+    img {
+      transform: scale(0.98);
+    }
+    a {
+      .card-title {
+        color: $primary;
+      }
+    }
+  }
 }

@@ -45,7 +45,7 @@ function getProjects($where = 'home') {
                             </p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-detail">
+                            <a href="<?=($where == 'temsilcilik' ? 'temsilcilik-proje-detay.php' : 'proje-detay.php')?>" class="btn btn-detail">
                                 <span>DETAYLI İNCELE</span>
                                 <span class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="bi bi-arrow-right-short">
