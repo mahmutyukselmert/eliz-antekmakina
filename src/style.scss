@@ -1542,6 +1542,8 @@ main.about-us-page {
 }
 
 .map-section {
+  position: relative;
+  overflow: hidden;
   #chartdiv {
     width: 100%;
     height: 80vh;
@@ -1559,8 +1561,8 @@ main.about-us-page {
     position: absolute;
     z-index: 1;
     height: auto;
-    margin-top: 1rem;
-    transform: translate(0, 20%);
+    /*margin-top: 1rem;
+    transform: translate(0, 20%);*/
 
     .back-button {
       border: 0;
@@ -1602,6 +1604,9 @@ main.about-us-page {
       padding: 0;
       margin: 0;
       background-color: #fff;
+
+      max-height: 350px;
+      overflow-y: scroll;
 
       li {
         padding: 1rem;
@@ -1778,6 +1783,154 @@ main.about-us-page {
     a {
       .card-title {
         color: $primary;
+      }
+    }
+  }
+}
+
+.project-filter-section {
+  position: relative;
+  margin-top: -2rem;
+  .filter-box {
+    background-color: #e0e4e6;
+  }
+  .form-select {
+    border-radius: 0;
+  }
+  label, select, button, a {
+    font-weight: 600;
+    font-size: .875rem;
+  }
+}
+
+.projects-list-sections {
+  margin-top: 2rem;
+
+  .flex-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .project-item-row {
+    position: relative;
+    min-height: 440px;
+    background-color: #fff;
+    margin-bottom: 42px;
+    max-width: 100%;
+    width: 100%;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+    .projects-link {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      .image-container {
+        height: 100%;
+        background: #ccc;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        left: 0;
+        top: 0;
+        &::after {
+          content: "";
+          background-image: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(45%, #1a383b),
+            color-stop(75%, rgba(0, 0, 0, 0.2))
+          );
+          background-image: linear-gradient(90deg, #1a383b 45%, rgba(0, 0, 0, 0.2) 75%);
+          mix-blend-mode: multiply;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+        }
+      }
+      .text-container {
+        height: 100%;
+        padding: 64px;
+        color: #fff;
+        position: relative;
+        -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+        overflow: hidden;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        span {
+          display: inline-block;
+        }
+        .text-wrapper {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -ms-flex-align: start;
+          align-items: flex-start;
+          .title {
+            max-width: 540px;
+            display: block;
+            font-size: 32px;
+            font-weight: 350;
+            line-height: 1.2em;
+            margin-bottom: 24px;
+          }
+          .sector {
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 600;
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              min-width: 140px;
+              width: 100%;
+              border-bottom: 1px solid $primary;
+            }
+          }
+          .location {
+            margin-bottom: 12px;
+            margin-top: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+          }
+          .summary-text {
+            font-weight: 400;
+            max-width: 520px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 36rem) {
+    .project-item-row {
+      .projects-link {
+        .text-container {
+          padding: 26px;
+        }
       }
     }
   }
