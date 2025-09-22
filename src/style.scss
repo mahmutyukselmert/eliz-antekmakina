@@ -392,7 +392,7 @@ header {
     padding-top: 6rem;
     padding-bottom: 2rem;
     p {
-      font-size: 24px;
+      font-size: 18px;
       margin-bottom: 3rem;
     }
   }
@@ -981,6 +981,9 @@ main.about-us-page {
     }
 
     @media (max-width: 36rem) {
+      .our-about-one-image-area {
+        margin-top: 1rem;
+      }
       .our-about-two-image-area {
         position: relative;
         margin-right: 0;

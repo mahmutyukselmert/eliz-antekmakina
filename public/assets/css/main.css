@@ -13766,6 +13766,7 @@ header nav.navbar .dropdown-menu li .dropdown-item:active {
     margin-top: 94px;
   }
   .sub-page-main .page-banner {
+    overflow: hidden;
     min-height: 60vh;
     height: 60vh;
   }
@@ -13773,11 +13774,16 @@ header nav.navbar .dropdown-menu li .dropdown-item:active {
     top: 130px;
   }
   .sub-page-main .page-banner-content {
-    /* top: 200px; */
+    top: 30px;
     width: 100%;
+    transform: none;
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 3rem;
   }
   .sub-page-main .page-banner-content p.subtitle {
     font-size: 24px;
+    width: auto;
   }
   .sub-page-main .page-banner-content p {
     font-size: 16px;
@@ -14261,7 +14267,7 @@ header nav.navbar .dropdown-menu li .dropdown-item:active {
     padding-bottom: 2rem;
   }
   .what-we-do p {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 3rem;
   }
 }
@@ -14774,6 +14780,10 @@ main.about-us-page section.about-story-section p {
   line-height: 1.8;
 }
 @media (max-width: 36rem) {
+  main.about-us-page section.about-one-section .our-about-one-image-area,
+  main.about-us-page section.about-story-section .our-about-one-image-area {
+    margin-top: 1rem;
+  }
   main.about-us-page section.about-one-section .our-about-two-image-area,
   main.about-us-page section.about-story-section .our-about-two-image-area {
     position: relative;

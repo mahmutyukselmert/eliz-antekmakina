@@ -285,6 +285,7 @@
         margin-top: 94px;
 
         .page-banner {
+            overflow: hidden;
             min-height: 60vh;
             height: 60vh;
 
@@ -296,11 +297,16 @@
         }
 
         .page-banner-content {
-            /* top: 200px; */
+            top: 30px;
             width: 100%;
+            transform: none;
+            overflow: auto;
+            height: 100%;
+            padding-bottom: 3rem;
 
             p.subtitle {
                 font-size: 24px;
+                width: auto;
             }
 
             p {
