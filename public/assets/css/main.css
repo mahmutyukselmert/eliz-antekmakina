@@ -13544,6 +13544,7 @@ header nav.navbar .dropdown-menu li .dropdown-item:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 #carouselSlider .carousel-inner .carousel-item .carousel-caption h1,
 #carouselSlider .carousel-inner .carousel-item .carousel-caption h2 {
